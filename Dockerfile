@@ -16,7 +16,7 @@ ENV SPARK_DIR /Spark
 # Download Apache Spark 2.0.1 (approx. 179mb)
 RUN wget --no-cookies --no-check-certificate "http://d3kbcqa49mib13.cloudfront.net/spark-2.0.1-bin-hadoop2.7.tgz" -O /tmp/spark.tgz
 
-# Switch directory 
+# Switch to Spark directory 
 WORKDIR ${SPARK_DIR}
 
 # Unzip the file into current working directory
@@ -41,6 +41,9 @@ EXPOSE 6066
 
 # Change perms for spark directory
 RUN chmod -R 777 ${SPARK_HOME}
+
+# Switch to Spark Home directory 
+WORKDIR ${SPARK_HOME}
 
 # Start the Apache Spark master server.
 CMD ["bin/spark-class","org.apache.spark.deploy.master.Master"]
