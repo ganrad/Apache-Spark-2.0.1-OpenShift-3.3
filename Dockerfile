@@ -28,7 +28,7 @@ ENV SPARK_PACKAGE spark-${SPARK_VERSION}-bin-hadoop2.7
 ENV SPARK_HOME ${SPARK_DIR}/${SPARK_PACKAGE}
 
 # Set java bin directory in PATH
-ENV PATH $={JAVA_HOME}/bin:${PATH}
+ENV PATH ${JAVA_HOME}/bin:${PATH}
 
 # Expose Spark master on default port 7077 on the container
 EXPOSE 7077
