@@ -1,5 +1,5 @@
 # Run latest version of Apache Spark 2.0.1 in a RHEL7 container
-FROM rhel7
+FROM rhel7:latest
 MAINTAINER Ganesh R, gradhakr@nilanet.com
 
 # Upgrade the system
