@@ -22,8 +22,13 @@ WORKDIR ${SPARK_DIR}
 # Unzip the file into current working directory
 RUN tar -xzf /tmp/spark.tgz
 
-# Export java bin directory
-RUN export PATH=${JAVA_HOME}/bin:${PATH}
+# Set Spark env variables
+ENV SPARK_VERSION 2.0.1
+ENV SPARK_PACKAGE spark-${SPARK_VERSION}-bin-hadoop2.7
+ENV SPARK_HOME ${SPARK_DIR}/${SPARK_PACKAGE}
+
+# Set java bin directory in PATH
+ENV PATH $={JAVA_HOME}/bin:${PATH}
 
 # Expose Spark master on default port 7077 on the container
 EXPOSE 7077
@@ -35,7 +40,7 @@ EXPOSE 8080
 EXPOSE 6066
 
 # Change perms for spark directory
-RUN chmod -R 777 ./spark-2.0.1-bin-hadoop2.7
+RUN chmod -R 777 ${SPARK_HOME}
 
 # Start the Apache Spark master server.
-CMD ["./spark-2.0.1-bin-hadoop2.7/sbin/start-master.sh"]
+CMD ["bin/spark-class","org.apache.spark.deploy.master.Master"]
