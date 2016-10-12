@@ -1,4 +1,4 @@
-# Run latest version of Apache Spark 2.0.1 in a RHEL7 container
+# Run latest version of Apache Spark 2.0.1 (Master) in a RHEL7 container
 FROM registry.access.redhat.com/rhel7/rhel
 MAINTAINER Ganesh R, gradhakr@nilanet.com
 
