@@ -1,5 +1,5 @@
 # Run latest version of Apache Spark 2.0.1 in a RHEL7 container
-FROM centos:7
+FROM rhel7/rhel
 MAINTAINER Ganesh R, gradhakr@nilanet.com
 
 # Upgrade the system
@@ -12,6 +12,7 @@ RUN yum -y install java-1.8.0-openjdk-devel
 # Set the Java & Keycloak Home env variables
 ENV JAVA_HOME /usr/lib/jvm/java-openjdk 
 ENV SPARK_DIR /Spark
+ENV SPARK_REL spark-2.0.1-bin-hadoop2.7
 
 # Download Apache Spark 2.0.1 (approx. 179mb)
 RUN wget --no-cookies --no-check-certificate "http://d3kbcqa49mib13.cloudfront.net/spark-2.0.1-bin-hadoop2.7.tgz" -O /tmp/spark.tgz
@@ -34,8 +35,8 @@ EXPOSE 8080
 # Expose Spark REST Server (StandaloneRestServer) port 6066 on the container
 EXPOSE 6066
 
-# Change perms for keycloak directory
-RUN chmod -R 777 ./spark-2.0.1-bin-hadoop2.7
+# Change perms for spark directory
+RUN chmod -R 777 ./${SPARK_REL}
 
 # Start the Apache Spark master server.
-CMD ["./spark-2.0.2-bin-hadoop2.7/sbin/start-master.sh"]
+CMD ["./${SPARK_REL}/sbin/start-master.sh"]
