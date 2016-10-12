@@ -38,4 +38,4 @@ EXPOSE 6066
 RUN chmod -R 777 ./spark-2.0.1-bin-hadoop2.7
 
 # Start the Apache Spark master server.
-CMD ["./sbin/start-master.sh"]
+CMD ["./spark-2.0.2-bin-hadoop2.7/sbin/start-master.sh"]
