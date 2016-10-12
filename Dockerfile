@@ -9,7 +9,7 @@ RUN yum -y install wget tar gunzip
 # Download OpenJDK 8
 RUN yum -y install java-1.8.0-openjdk-devel
 
-# Set the Java & Keycloak Home env variables
+# Set the Java & Spark Home env variables
 ENV JAVA_HOME /usr/lib/jvm/java-openjdk 
 ENV SPARK_DIR /Spark
 ENV SPARK_REL spark-2.0.1-bin-hadoop2.7
