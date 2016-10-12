@@ -5,13 +5,22 @@
 1. Clone this git repository.  And copy the GIT URL to your GIT repo.  
 2. Log into OpenShift via CLI (or Web UI)  
 3. Create a new project.  
-  **CLI command:** _oc new-project spark_
+  ```
+  $ oc new-project apache-spark
+  ```
 4. Next, create a new application.  
-  **CLI command:** _oc new-app [Path to GIT URL .git] --name=spark-master_  
+  ```
+  $ oc new-app [Path to GIT URL .git] --name=spark-master  
+  ```
 5. Get a list of all services.  
-  **CLI command:** _oc get svc_. Note down the service name. (Note: The Apache Spark master service listens on port 7077 & Spark Web UI listens on port 8080.)    
+  ```
+  $ oc get svc
+  ```
+  Note down the service name. (Note: The Apache Spark master service listens on port 7077 & Spark Web UI listens on port 8080.)    
 6. Expose the service via a route.  
-  **CLI command:** _oc expose svc [service name]_    
+  ```
+  $ oc expose svc [service name]    
+  ```
 7. Log into the Web UI, go to the overview tab & click on the route name. This should open a new browser tab with the Apache Spark server Web UI.  
 
 
