@@ -45,5 +45,5 @@ RUN chmod -R 777 ${SPARK_HOME}
 # Switch to Spark Home directory 
 WORKDIR ${SPARK_HOME}
 
-# Start the Apache Spark master server.
+# Start the Apache Spark master server process.
 CMD ["bin/spark-class","org.apache.spark.deploy.master.Master"]

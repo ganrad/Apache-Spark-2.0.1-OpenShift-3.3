@@ -3,7 +3,7 @@
 
 #### Instructions for deploying to OpenShift Container Platform 3.3 (or above)
 1. Clone this git repository.  And copy the GIT URL to your GIT repo.  
-2. Log into OpenShift via CLI (or Web UI)  
+2. Log into OpenShift via CLI
 3. Create a new project.  
   ```
   $ oc new-project apache-spark
