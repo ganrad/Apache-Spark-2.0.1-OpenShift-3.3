@@ -37,7 +37,7 @@ EXPOSE 7077
 EXPOSE 8080
 
 # Expose Spark REST Server (StandaloneRestServer) port 6066 on the container
-EXPOSE 6066
+# EXPOSE 6066
 
 # Change perms for spark directory
 RUN chmod -R 777 ${SPARK_HOME}
